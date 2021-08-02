@@ -199,7 +199,7 @@ class ServingService(object):
             # create the serving engine Task
             engine_task = Task.create(
                 project_name=self._task.get_project_name(),
-                task_name="triton serving engine",
+                task_name="Triton Serving Engine",
                 task_type=Task.TaskTypes.inference,
                 repo="https://github.com/manojlds/clearml-serving.git",
                 branch="main",
