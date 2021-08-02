@@ -211,6 +211,7 @@ class ServingService(object):
                 add_task_init_call=False,
                 packages=[
                     'clearml',
+                    'spacy==3.1.1',
                     'azure-storage-blob>=2.0.1,<=2.1',
                     'google-cloud-storage>=1.13.2',
                     'boto3>=1.9',
