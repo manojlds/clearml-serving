@@ -57,9 +57,8 @@ class ServingService(object):
             if not self._task:
                 self._task = Task.create(
                     project_name=task_project, task_name=task_name, task_type=Task.TaskTypes.service,
-                    repo="https://github.com/allegroai/clearml-serving.git",
+                    repo="https://github.com/manojlds/clearml-serving.git",
                     branch="main",
-                    commit="ad049c51c146e9b7852f87e2f040e97d88848a1f",
                     script="clearml_serving/service.py",
                     working_directory=".",
                     add_task_init_call=False,
@@ -201,9 +200,8 @@ class ServingService(object):
                 project_name=self._task.get_project_name(),
                 task_name="triton serving engine",
                 task_type=Task.TaskTypes.inference,
-                repo="https://github.com/allegroai/clearml-serving.git",
+                repo="https://github.com/manojlds/clearml-serving.git",
                 branch="main",
-                commit="ad049c51c146e9b7852f87e2f040e97d88848a1f",
                 script="clearml_serving/triton_helper.py",
                 working_directory=".",
                 docker=container or engine_type_container,
@@ -551,7 +549,6 @@ class ServingService(object):
                 # if this is a folder copy every and delete the temp folder
                 if local_path.is_dir():
                     # we assume we have a `tensorflow.savedmodel` folder
-                    model_folder /= 'model.savedmodel'
                     model_folder.mkdir(parents=True, exist_ok=True)
                     # rename to old
                     old_folder = None
