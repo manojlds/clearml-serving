@@ -7,6 +7,7 @@ from typing import Optional, Union, Dict, Sequence
 
 from attr import attrib, attrs, asdict
 from pathlib2 import Path
+from os import listdir
 
 from clearml import Task, Model, InputModel
 
@@ -548,6 +549,8 @@ class ServingService(object):
 
                 # if this is a folder copy every and delete the temp folder
                 if local_path.is_dir():
+                    print(listdir(local_path))
+
                     # we assume we have a `tensorflow.savedmodel` folder
                     model_folder.mkdir(parents=True, exist_ok=True)
                     # rename to old
@@ -564,6 +567,7 @@ class ServingService(object):
                         shutil.rmtree(path=old_folder.as_posix())
                     # delete temp folder
                     shutil.rmtree(local_path.as_posix())
+                    print(listdir(model_folder))
                 else:
                     # single file should be moved
                     target_path = model_folder / local_path.name
